@@ -21,8 +21,30 @@
     </style>
 </head>
 <body class="bg-orange-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="text-2xl">☕</div>
+                    <span class="font-bold text-gray-800">Aarav Tea Stall</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Home</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Gallery</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Pricing</a>
+                    <a href="#menu" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Menu</a>
+                    <a href="#contact" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">Contact</a>
+                </div>
+                <button onclick="showOrderForm()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+                    Order Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header -->
-    <header class="hero-bg text-white shadow-lg">
+    <header id="home" class="hero-bg text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
@@ -48,37 +70,158 @@
     </section>
 
     <!-- Tea Gallery -->
-    <section class="py-12 bg-white">
+    <section id="gallery" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Our Tea Stall Gallery</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <!-- Tea Stall Images (Using SVG placeholders) -->
-                <div class="bg-gradient-to-br from-orange-400 to-red-500 rounded-lg p-8 text-center text-white shadow-lg">
-                    <div class="text-6xl mb-4">🏪</div>
-                    <p class="font-semibold">Our Stall</p>
+                <!-- Tea Stall Images -->
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <defs>
+                            <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#87CEEB"/>
+                                <stop offset="100%" style="stop-color:#E0F6FF"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Sky background -->
+                        <rect width="400" height="300" fill="url(#sky)"/>
+                        <!-- Tea stall structure -->
+                        <rect x="50" y="150" width="300" height="120" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+                        <polygon points="40,150 200,80 360,150" fill="#DC143C"/>
+                        <!-- Windows -->
+                        <rect x="80" y="180" width="40" height="40" fill="#87CEEB" stroke="#654321" stroke-width="2"/>
+                        <rect x="280" y="180" width="40" height="40" fill="#87CEEB" stroke="#654321" stroke-width="2"/>
+                        <!-- Door -->
+                        <rect x="180" y="190" width="40" height="80" fill="#654321"/>
+                        <!-- Sign -->
+                        <rect x="120" y="120" width="160" height="30" fill="#FFD700" stroke="#FF8C00" stroke-width="2"/>
+                        <text x="200" y="140" text-anchor="middle" fill="#8B4513" font-size="14" font-weight="bold">AARAV TEA STALL</text>
+                        <!-- Steam from chimney -->
+                        <circle cx="320" cy="100" r="8" fill="#F0F8FF" opacity="0.7"/>
+                        <circle cx="325" cy="85" r="6" fill="#F0F8FF" opacity="0.5"/>
+                        <circle cx="330" cy="70" r="4" fill="#F0F8FF" opacity="0.3"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Our Beautiful Stall</p>
+                    </div>
                 </div>
-                <div class="bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg p-8 text-center text-white shadow-lg">
-                    <div class="text-6xl mb-4 tea-steam">☕</div>
-                    <p class="font-semibold">Fresh Tea</p>
+
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <!-- Warm kitchen background -->
+                        <rect width="400" height="300" fill="#FFF8DC"/>
+                        <!-- Counter -->
+                        <rect x="0" y="200" width="400" height="100" fill="#8B4513"/>
+                        <!-- Tea kettle -->
+                        <ellipse cx="150" cy="180" rx="40" ry="25" fill="#C0C0C0"/>
+                        <rect x="130" y="155" width="40" height="25" fill="#C0C0C0"/>
+                        <path d="M190 170 Q210 160 210 180 Q210 200 190 190" fill="none" stroke="#C0C0C0" stroke-width="3"/>
+                        <!-- Steam -->
+                        <path d="M150 155 Q155 140 150 125 Q145 110 150 95" fill="none" stroke="#F0F8FF" stroke-width="3" opacity="0.7"/>
+                        <path d="M160 155 Q165 140 160 125 Q155 110 160 95" fill="none" stroke="#F0F8FF" stroke-width="3" opacity="0.5"/>
+                        <!-- Tea cups -->
+                        <ellipse cx="250" cy="185" rx="15" ry="10" fill="#8B4513"/>
+                        <ellipse cx="280" cy="185" rx="15" ry="10" fill="#8B4513"/>
+                        <ellipse cx="310" cy="185" rx="15" ry="10" fill="#8B4513"/>
+                        <!-- Tea liquid -->
+                        <ellipse cx="250" cy="185" rx="12" ry="8" fill="#D2691E"/>
+                        <ellipse cx="280" cy="185" rx="12" ry="8" fill="#D2691E"/>
+                        <ellipse cx="310" cy="185" rx="12" ry="8" fill="#D2691E"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Fresh Tea Brewing</p>
+                    </div>
                 </div>
-                <div class="bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg p-8 text-center text-white shadow-lg">
-                    <div class="text-6xl mb-4">🥟</div>
-                    <p class="font-semibold">Hot Snacks</p>
+
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <!-- Kitchen background -->
+                        <rect width="400" height="300" fill="#FFFACD"/>
+                        <!-- Cooking area -->
+                        <rect x="50" y="150" width="300" height="150" fill="#8B4513"/>
+                        <!-- Stove -->
+                        <circle cx="150" cy="200" r="30" fill="#2F4F4F"/>
+                        <circle cx="250" cy="200" r="30" fill="#2F4F4F"/>
+                        <!-- Pans -->
+                        <ellipse cx="150" cy="200" rx="25" ry="15" fill="#696969"/>
+                        <ellipse cx="250" cy="200" rx="25" ry="15" fill="#696969"/>
+                        <!-- Food items (pakoras) -->
+                        <circle cx="145" cy="200" r="4" fill="#DAA520"/>
+                        <circle cx="155" cy="195" r="4" fill="#DAA520"/>
+                        <circle cx="150" cy="205" r="4" fill="#DAA520"/>
+                        <!-- Momos -->
+                        <path d="M245 195 Q250 190 255 195 Q250 200 245 195" fill="#F5DEB3"/>
+                        <path d="M245 205 Q250 200 255 205 Q250 210 245 205" fill="#F5DEB3"/>
+                        <!-- Steam -->
+                        <path d="M150 185 Q155 170 150 155" fill="none" stroke="#F0F8FF" stroke-width="2" opacity="0.6"/>
+                        <path d="M250 185 Q255 170 250 155" fill="none" stroke="#F0F8FF" stroke-width="2" opacity="0.6"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Hot Snacks Cooking</p>
+                    </div>
                 </div>
-                <div class="bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-8 text-center text-white shadow-lg">
-                    <div class="text-6xl mb-4">👨‍🍳</div>
-                    <p class="font-semibold">Avinash Ji</p>
+
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <!-- Background -->
+                        <rect width="400" height="300" fill="#F0E68C"/>
+                        <!-- Person (Avinash Ji) -->
+                        <circle cx="200" cy="120" r="25" fill="#FDBCB4"/>
+                        <!-- Hair -->
+                        <path d="M175 105 Q200 95 225 105 Q225 115 200 120 Q175 115 175 105" fill="#2F4F4F"/>
+                        <!-- Body -->
+                        <rect x="180" y="145" width="40" height="60" fill="#4169E1"/>
+                        <!-- Arms -->
+                        <rect x="160" y="155" width="20" height="8" fill="#FDBCB4"/>
+                        <rect x="220" y="155" width="20" height="8" fill="#FDBCB4"/>
+                        <!-- Hands holding tea cup -->
+                        <circle cx="245" cy="159" r="5" fill="#FDBCB4"/>
+                        <ellipse cx="255" cy="159" rx="8" ry="5" fill="#8B4513"/>
+                        <!-- Smile -->
+                        <path d="M190 125 Q200 135 210 125" fill="none" stroke="#000" stroke-width="2"/>
+                        <!-- Eyes -->
+                        <circle cx="195" cy="115" r="2" fill="#000"/>
+                        <circle cx="205" cy="115" r="2" fill="#000"/>
+                        <!-- Apron -->
+                        <rect x="185" y="150" width="30" height="40" fill="#FFFFFF" opacity="0.8"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Avinash Ji Serving</p>
+                    </div>
                 </div>
-                <div class="bg-gradient-to-br from-red-400 to-pink-500 rounded-lg p-8 text-center text-white shadow-lg">
-                    <div class="text-6xl mb-4">🎓</div>
-                    <p class="font-semibold">Student Favorite</p>
+
+                <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                    <svg viewBox="0 0 400 300" class="w-full h-48 object-cover">
+                        <!-- College background -->
+                        <rect width="400" height="300" fill="#E6E6FA"/>
+                        <!-- College building silhouette -->
+                        <rect x="50" y="100" width="300" height="100" fill="#708090"/>
+                        <polygon points="40,100 200,50 360,100" fill="#2F4F4F"/>
+                        <!-- Students -->
+                        <circle cx="150" cy="220" r="15" fill="#FDBCB4"/>
+                        <rect x="140" y="235" width="20" height="30" fill="#FF6347"/>
+                        <circle cx="200" cy="220" r="15" fill="#FDBCB4"/>
+                        <rect x="190" y="235" width="20" height="30" fill="#32CD32"/>
+                        <circle cx="250" cy="220" r="15" fill="#FDBCB4"/>
+                        <rect x="240" y="235" width="20" height="30" fill="#4169E1"/>
+                        <!-- Books -->
+                        <rect x="145" y="210" width="8" height="12" fill="#8B4513"/>
+                        <rect x="195" y="210" width="8" height="12" fill="#8B4513"/>
+                        <!-- Tea cups in hands -->
+                        <ellipse cx="160" cy="225" rx="5" ry="3" fill="#8B4513"/>
+                        <ellipse cx="210" cy="225" rx="5" ry="3" fill="#8B4513"/>
+                        <ellipse cx="260" cy="225" rx="5" ry="3" fill="#8B4513"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                        <p class="text-white font-semibold p-4">Student Favorite Spot</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="py-12 bg-orange-100">
+    <section id="pricing" class="py-12 bg-orange-100">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Tea Pricing</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -114,7 +257,7 @@
             <div class="bg-white bg-opacity-20 rounded-lg p-8 max-w-2xl mx-auto backdrop-blur-sm">
                 <div class="text-6xl mb-4">📅</div>
                 <h3 class="text-2xl font-bold mb-4">Special Monthly Package</h3>
-                <div class="text-5xl font-bold mb-4">₹250</div>
+                <div class="text-5xl font-bold mb-4">₹300</div>
                 <div class="text-xl mb-6">
                     <p>✅ 37 Cups of Tea</p>
                     <p>✅ Valid for 32 Days</p>
@@ -129,7 +272,7 @@
     </section>
 
     <!-- Snacks Menu -->
-    <section class="py-12 bg-white">
+    <section id="menu" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Delicious Snacks Menu</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -215,7 +358,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer id="contact" class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4 text-center">
             <div class="mb-4">
                 <h3 class="text-2xl font-bold">Aarav Tea Stall</h3>
@@ -268,5 +411,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96fe98393512f424',t:'MTc1NTMyMjgwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96feb94513dde084',t:'MTc1NTMyNDE1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
